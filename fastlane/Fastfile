@@ -18,6 +18,6 @@ default_platform(:ios)
 platform :ios do
   desc "Description of what the lane does"
      lane :tests do
-        run_tests(scheme: "JenkinsTest")
+        run_tests(scheme: "JenkinsTest", code_coverage: true, formatter: true)
      end
 end
