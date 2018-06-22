@@ -1,6 +1,6 @@
 stage('Setting the variables values') {
     node {
-    	echo '${Flavour}'
+    	echo '${env.Flavour}'
          sh '''#!/bin/bash
                 fastlane tests 
          '''
