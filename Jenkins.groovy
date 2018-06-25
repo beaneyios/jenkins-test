@@ -1,9 +1,5 @@
 stage('Setting the variables values') {
     node {
-    	print "${env.Flavour}"
-    	print params.Flavour
-         sh '''#!/bin/bash
-                fastlane tests 
-         '''
+         slackSend (color: '#FFFF00', message: "STARTED: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]' (${env.BUILD_URL})")
     }
 }
