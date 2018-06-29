@@ -2,7 +2,7 @@ void notifyFailure(flavour, stageName) {
     def color = "#f44242"
     def subject = "${flavour} failed to build."
     def title = "${flavour} failed on ${stageName}"
-    def slackNotificationSucceeded = notifySlack(color, subject, title, jobName, buildNumber)
+    def slackNotificationSucceeded = notifySlack(color, subject, title)
 
     if(slackNotificationSucceeded) {
         notifyEmail(stageName)
@@ -13,7 +13,7 @@ void notifySuccess(flavour, stageName) {
     def color = "#0cb500"
     def subject = "${flavour} build succeeded."
     def title = "No errors to report."
-    def slackNotificationSucceeded = notifySlack(color, subject, title, jobName, buildNumber)
+    def slackNotificationSucceeded = notifySlack(color, subject, title)
 }
 
 Boolean notifySlack(color, subject, title) {
