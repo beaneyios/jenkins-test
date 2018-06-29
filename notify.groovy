@@ -4,7 +4,7 @@ void notifyFailure(flavour, stageName) {
     def title = "${flavour} failed on ${stageName}"
     def slackNotificationSucceeded = notifySlack(color, subject, title)
 
-    if(slackNotificationSucceeded) {
+    if(!slackNotificationSucceeded) {
         notifyEmail(stageName, flavour)
     }
 }
