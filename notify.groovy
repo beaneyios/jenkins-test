@@ -1,6 +1,6 @@
-void notifyFailure(flavour, stageName) {
+void notifyFailure(flavour, stageName, platform) {
     def color = "#f44242"
-    def subject = "${flavour} failed to build."
+    def subject = "${flavour} failed to build for ${platform}"
     def title = "${flavour} failed on ${stageName}. Click here to see the build."
     def slackNotificationSucceeded = notifySlack(color, subject, title)
 
@@ -9,9 +9,9 @@ void notifyFailure(flavour, stageName) {
     }
 }
 
-void notifySuccess(flavour, stageName) {
+void notifySuccess(flavour, stageName, platform) {
     def color = "#0cb500"
-    def subject = "${flavour} build succeeded."
+    def subject = "${flavour} build succeeded for ${platform}."
     def title = "No errors to report."
     def slackNotificationSucceeded = notifySlack(color, subject, title)
 }
