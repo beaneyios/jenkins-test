@@ -49,3 +49,5 @@ void notifyEmail(stageName, flavour) {
                 body: 'Go to Jenkins for more details.', 
                 mimeType: 'text/html'
 }
+
+return this;
