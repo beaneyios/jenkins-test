@@ -11,7 +11,7 @@ void notifyFailure(flavour, stageName, platform, buildVersion) {
 
 void notifySuccess(flavour, stageName, platform, buildVersion) {
     def color = "#0cb500"
-    def subject = "${flavour} build succeeded for ${platform} - ${buildVersion}."
+    def subject = "${flavour} build succeeded for ${platform} - ${buildVersion} - ${stageName}."
     def title = "No errors to report."
     def slackNotificationSucceeded = notifySlack(color, subject, title)
 }
@@ -44,7 +44,7 @@ Boolean notifySlack(color, subject, title) {
 
 void notifyEmail(stageName, flavour) {
     emailext    attachLog: false,
-                to: 'matthew.beaney@bbc.co.uk', 
+                to: 'barry.kidney@bbc.co.uk', 
                 subject: flavour + ': ' + stageName + ' stage failed', 
                 body: 'Go to Jenkins for more details.', 
                 mimeType: 'text/html'
